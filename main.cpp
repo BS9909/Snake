@@ -1,5 +1,4 @@
 #include <iostream>
-#include <conio.h>
 #include <ctime>
 #include <SFML/Graphics.hpp>
 #include "Snake.h"
