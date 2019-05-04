@@ -26,8 +26,8 @@ int main() {
         }
         window.clear();
 
-        snakeController.controllEvent(event);
         snakeView.draw();
+        snakeController.controllEvent(event);
 
         window.display();
     }

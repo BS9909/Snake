@@ -3,14 +3,18 @@
 //
 
 #include "SnakeController.h"
+#include <windows.h>
 
 SnakeController::SnakeController(Snake &snake, SnakeView &snakeView, sf::RenderWindow &win):snake(snake),
 snakeView(snakeView),
 win(win)
 {}
 void SnakeController::controllEvent(sf::Event event) {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
             snake.moveDown();
-            snakeView.draw();
-    }
+        }
+        if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
+            snake.moveRight();
+        }
+
 }

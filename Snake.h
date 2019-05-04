@@ -3,6 +3,7 @@
 //
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include <list>
 
 #ifndef SNAKE_SNAKE_H
 #define SNAKE_SNAKE_H
@@ -19,6 +20,10 @@ class Snake {
     int high;
     int rowFoodPosition;
     int columnFoodPosition;
+    std::vector <sItem> vec;
+public:
+    const std::vector<sItem> &getVec() const;
+
 public:
     int getWidth() const;
 
@@ -41,6 +46,7 @@ public:
     void snakeCollision();
     void Feed();
     void moveDown();
+    void moveRight();
 };
 
 

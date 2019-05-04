@@ -7,6 +7,7 @@
 #include <cstdlib>
 #include <ctime>
 #include <SFML/Graphics.hpp>
+#include <windows.h>
 
 using namespace std;
 
@@ -19,7 +20,7 @@ Snake::Snake(int width, int high, int rowHeadPosition, int columnHeadPosition){
     columnFoodPosition=0;
     rowBodyPosition=0;
     columnBodyPosition=0;
-    snakeLength = 4;
+    snakeLength = 3;
     gameState = RUNNING;
     for (int i = 0; i < high; ++i) {
         for (int j = 0; j < width; ++j) {
@@ -55,7 +56,9 @@ void Snake::randomFood() {
 }
 void Snake::setHeadPosition() {
     for (int i = 0; i < snakeLength; ++i) {
-        board[rowHeadPosition++][columnHeadPosition].head = true;
+        rowHeadPosition++;
+        board[rowHeadPosition][columnHeadPosition].head = true;
+        vec.push_back(board[rowHeadPosition][columnHeadPosition]);
     }
 }
 void Snake::snakeCollision() {
@@ -88,8 +91,26 @@ int Snake::getHigh() const {
     return high;
 }
 void Snake::moveDown() {
+        int oldRowPosition = rowHeadPosition;
+        int oldColumnPosition = columnHeadPosition;
+        board[oldRowPosition - snakeLength][oldColumnPosition].head = false;
+        rowHeadPosition++;
+        board[rowHeadPosition][oldColumnPosition].head = true;
+        if (oldRowPosition - snakeLength > high-2) rowHeadPosition = -1;
+        cout<<rowHeadPosition<<endl;
+        Sleep(100);
+}
+void Snake::moveRight() {
     int oldRowPosition = rowHeadPosition;
     int oldColumnPosition = columnHeadPosition;
-    board[oldRowPosition-snakeLength][oldColumnPosition].head = false;
+    board[oldRowPosition][oldColumnPosition-snakeLength].head = false;
+    columnHeadPosition++;
     board[rowHeadPosition][columnHeadPosition].head = true;
+    //przejscie przez sciane
+    if (columnHeadPosition - snakeLength > width) columnHeadPosition = -1;
+    Sleep(100);
+}
+
+const vector<sItem> &Snake::getVec() const {
+    return vec;
 }
