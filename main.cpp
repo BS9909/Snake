@@ -9,13 +9,12 @@ int main() {
     srand(time(NULL));
     sf::Event event;
     int recSize = 40;
-    int row=10,column=10;
+    int row=20,column=20;
+    //--------------------------------------------------------------------------//
     sf::RenderWindow window(sf::VideoMode(recSize*row,recSize*column), "Snake");
     Snake snake(row,column,0,0);
     SnakeView snakeView(window, snake, recSize);
     SnakeController snakeController(snake, snakeView,window);
-    snake.setHeadPosition();
-    snake.randomFood();
     snake.draw();
     while (window.isOpen()){
         while (window.pollEvent(event)) {

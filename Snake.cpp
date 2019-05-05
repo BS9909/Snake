@@ -16,11 +16,13 @@ Snake::Snake(int width, int high, int rowHeadPosition, int columnHeadPosition){
     this->high = high;
     this->rowHeadPosition = rowHeadPosition;
     this->columnHeadPosition = columnHeadPosition;
+    position.x = 0;
+    position.y = 0;
     rowFoodPosition=0;
     columnFoodPosition=0;
     rowBodyPosition=0;
     columnBodyPosition=0;
-    snakeLength = 3;
+    snakeLength = 0;
     gameState = RUNNING;
     for (int i = 0; i < high; ++i) {
         for (int j = 0; j < width; ++j) {
@@ -29,6 +31,8 @@ Snake::Snake(int width, int high, int rowHeadPosition, int columnHeadPosition){
             board[i][j].body=false;
         }
     }
+    randomFood();
+
 }
 void Snake::draw() const {
     for (int i = 0; i < high; ++i) {
@@ -47,33 +51,52 @@ void Snake::draw() const {
 void Snake::randomFood() {
     rowFoodPosition = rand() % high;
     columnFoodPosition = rand() % width;
-    if(rowFoodPosition==rowHeadPosition){
-        rowFoodPosition = rand() % high;
-        columnFoodPosition = rand() % width;
-    }
     board[rowFoodPosition][columnFoodPosition].food = true;
-
 }
+
 void Snake::setHeadPosition() {
-    for (int i = 0; i < snakeLength; ++i) {
+    if(direction==DOWN) {
         rowHeadPosition++;
         board[rowHeadPosition][columnHeadPosition].head = true;
-        vec.push_back(board[rowHeadPosition][columnHeadPosition]);
+        board[rowHeadPosition][columnHeadPosition].body = true;
+        if (rowHeadPosition == high)
+            rowHeadPosition = -1;
     }
+    if(direction==RIGHT){
+        columnHeadPosition++;
+        board[rowHeadPosition][columnHeadPosition].head = true;
+        board[rowHeadPosition][columnHeadPosition].body = true;
+        if(columnHeadPosition == width)
+            columnHeadPosition = -1;
+    }
+    if(direction==LEFT){
+        columnHeadPosition--;
+        board[rowHeadPosition][columnHeadPosition].head = true;
+        board[rowHeadPosition][columnHeadPosition].body = true;
+        if(columnHeadPosition == -1)
+            columnHeadPosition = width;
+    }
+    if(direction==UP){
+        rowHeadPosition--;
+        board[rowHeadPosition][columnHeadPosition].head = true;
+        board[rowHeadPosition][columnHeadPosition].body = true;
+        if(rowHeadPosition == -1)
+            rowHeadPosition = high;
+    }
+
 }
+
 void Snake::snakeCollision() {
     for (int i = 0; i < high; ++i) {
         for (int j = 0; j < width; ++j) {
             if (board[i][j].food && board[i][j].head) {
                 snakeLength++;
-                while (rowFoodPosition == rowHeadPosition && columnHeadPosition == columnFoodPosition) {
-                    rowFoodPosition = rand() % high;
-                    columnFoodPosition = rand() % width;
-                }
-                board[rowFoodPosition][columnFoodPosition].food = true;
+                board[rowFoodPosition][columnFoodPosition].food = false;
+                randomFood();
+                setSnake();
             }
 
-            if(board[i][j].head && board[i][j].body) gameState = FINISHED_LOOSE;
+            if(board[i][j].head && board[i][j].body) break;
         }
     }
 }
@@ -91,26 +114,52 @@ int Snake::getHigh() const {
     return high;
 }
 void Snake::moveDown() {
-        int oldRowPosition = rowHeadPosition;
-        int oldColumnPosition = columnHeadPosition;
-        board[oldRowPosition - snakeLength][oldColumnPosition].head = false;
-        rowHeadPosition++;
-        board[rowHeadPosition][oldColumnPosition].head = true;
-        if (oldRowPosition - snakeLength > high-2) rowHeadPosition = -1;
-        cout<<rowHeadPosition<<endl;
-        Sleep(100);
-}
-void Snake::moveRight() {
-    int oldRowPosition = rowHeadPosition;
-    int oldColumnPosition = columnHeadPosition;
-    board[oldRowPosition][oldColumnPosition-snakeLength].head = false;
-    columnHeadPosition++;
-    board[rowHeadPosition][columnHeadPosition].head = true;
-    //przejscie przez sciane
-    if (columnHeadPosition - snakeLength > width) columnHeadPosition = -1;
+    board[rowHeadPosition][columnHeadPosition].head = false;
+    board[rowHeadPosition][rowHeadPosition].body = false;
+    setHeadPosition();
+    snakeCollision();
     Sleep(100);
 }
-
-const vector<sItem> &Snake::getVec() const {
-    return vec;
+void Snake::moveRight() {
+    board[rowHeadPosition][columnHeadPosition].head = false;
+    board[rowHeadPosition][columnHeadPosition].body = false;
+    setHeadPosition();
+    snakeCollision();
+    Sleep(100);
 }
+void Snake::moveLeft() {
+    board[rowHeadPosition][columnHeadPosition].head = false;
+    board[rowHeadPosition][columnHeadPosition].body = false;
+    setHeadPosition();
+    snakeCollision();
+    Sleep(100);
+}
+void Snake::moveUp() {
+    board[rowHeadPosition][columnHeadPosition].head = false;
+    board[rowHeadPosition][columnHeadPosition].body = false;
+    setHeadPosition();
+    snakeCollision();
+    Sleep(100);
+}
+//Funkcja odpowiedzialna za odpowiednie ustawienie się nowego ciała snake
+void Snake::setSnake() {
+   // for (int i = 0; i < snakeLength; ++i) {
+        if(direction == DOWN) {
+            board[rowHeadPosition-snakeLength][columnHeadPosition].body = true;
+            snakeBody[snakeLength] = board[rowHeadPosition-snakeLength][columnHeadPosition];
+        }
+        if(direction == UP) {
+            board[rowHeadPosition+snakeLength][columnHeadPosition].body = true;
+            snakeBody[snakeLength] = board[rowHeadPosition+snakeLength][columnHeadPosition];
+        }
+        if(direction == LEFT) {
+            board[rowHeadPosition][columnHeadPosition+snakeLength].body = true;
+            snakeBody[snakeLength] = board[rowHeadPosition][columnHeadPosition+snakeLength];
+        }
+        if(direction == RIGHT) {
+            board[rowHeadPosition][columnHeadPosition-snakeLength].body = true;
+            snakeBody[snakeLength] = board[rowHeadPosition][columnHeadPosition-snakeLength];
+     //   }
+    }
+}
+
