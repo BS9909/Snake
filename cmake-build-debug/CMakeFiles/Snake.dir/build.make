@@ -112,12 +112,57 @@ CMakeFiles/Snake.dir/SnakeController.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Snake.dir/SnakeController.cpp.s"
 	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Bartek\CLionProjects\Snake\SnakeController.cpp -o CMakeFiles\Snake.dir\SnakeController.cpp.s
 
+CMakeFiles/Snake.dir/GameManager.cpp.obj: CMakeFiles/Snake.dir/flags.make
+CMakeFiles/Snake.dir/GameManager.cpp.obj: CMakeFiles/Snake.dir/includes_CXX.rsp
+CMakeFiles/Snake.dir/GameManager.cpp.obj: ../GameManager.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Bartek\CLionProjects\Snake\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/Snake.dir/GameManager.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Snake.dir\GameManager.cpp.obj -c C:\Users\Bartek\CLionProjects\Snake\GameManager.cpp
+
+CMakeFiles/Snake.dir/GameManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Snake.dir/GameManager.cpp.i"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Bartek\CLionProjects\Snake\GameManager.cpp > CMakeFiles\Snake.dir\GameManager.cpp.i
+
+CMakeFiles/Snake.dir/GameManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Snake.dir/GameManager.cpp.s"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Bartek\CLionProjects\Snake\GameManager.cpp -o CMakeFiles\Snake.dir\GameManager.cpp.s
+
+CMakeFiles/Snake.dir/ScoreView.cpp.obj: CMakeFiles/Snake.dir/flags.make
+CMakeFiles/Snake.dir/ScoreView.cpp.obj: CMakeFiles/Snake.dir/includes_CXX.rsp
+CMakeFiles/Snake.dir/ScoreView.cpp.obj: ../ScoreView.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Bartek\CLionProjects\Snake\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/Snake.dir/ScoreView.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Snake.dir\ScoreView.cpp.obj -c C:\Users\Bartek\CLionProjects\Snake\ScoreView.cpp
+
+CMakeFiles/Snake.dir/ScoreView.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Snake.dir/ScoreView.cpp.i"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Bartek\CLionProjects\Snake\ScoreView.cpp > CMakeFiles\Snake.dir\ScoreView.cpp.i
+
+CMakeFiles/Snake.dir/ScoreView.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Snake.dir/ScoreView.cpp.s"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Bartek\CLionProjects\Snake\ScoreView.cpp -o CMakeFiles\Snake.dir\ScoreView.cpp.s
+
+CMakeFiles/Snake.dir/ScoreController.cpp.obj: CMakeFiles/Snake.dir/flags.make
+CMakeFiles/Snake.dir/ScoreController.cpp.obj: CMakeFiles/Snake.dir/includes_CXX.rsp
+CMakeFiles/Snake.dir/ScoreController.cpp.obj: ../ScoreController.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=C:\Users\Bartek\CLionProjects\Snake\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/Snake.dir/ScoreController.cpp.obj"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles\Snake.dir\ScoreController.cpp.obj -c C:\Users\Bartek\CLionProjects\Snake\ScoreController.cpp
+
+CMakeFiles/Snake.dir/ScoreController.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Snake.dir/ScoreController.cpp.i"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E C:\Users\Bartek\CLionProjects\Snake\ScoreController.cpp > CMakeFiles\Snake.dir\ScoreController.cpp.i
+
+CMakeFiles/Snake.dir/ScoreController.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Snake.dir/ScoreController.cpp.s"
+	C:\PROGRA~2\MINGW-~1\I686-8~1.0-P\mingw32\bin\G__~1.EXE $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S C:\Users\Bartek\CLionProjects\Snake\ScoreController.cpp -o CMakeFiles\Snake.dir\ScoreController.cpp.s
+
 # Object files for target Snake
 Snake_OBJECTS = \
 "CMakeFiles/Snake.dir/main.cpp.obj" \
 "CMakeFiles/Snake.dir/Snake.cpp.obj" \
 "CMakeFiles/Snake.dir/SnakeView.cpp.obj" \
-"CMakeFiles/Snake.dir/SnakeController.cpp.obj"
+"CMakeFiles/Snake.dir/SnakeController.cpp.obj" \
+"CMakeFiles/Snake.dir/GameManager.cpp.obj" \
+"CMakeFiles/Snake.dir/ScoreView.cpp.obj" \
+"CMakeFiles/Snake.dir/ScoreController.cpp.obj"
 
 # External object files for target Snake
 Snake_EXTERNAL_OBJECTS =
@@ -126,6 +171,9 @@ Snake.exe: CMakeFiles/Snake.dir/main.cpp.obj
 Snake.exe: CMakeFiles/Snake.dir/Snake.cpp.obj
 Snake.exe: CMakeFiles/Snake.dir/SnakeView.cpp.obj
 Snake.exe: CMakeFiles/Snake.dir/SnakeController.cpp.obj
+Snake.exe: CMakeFiles/Snake.dir/GameManager.cpp.obj
+Snake.exe: CMakeFiles/Snake.dir/ScoreView.cpp.obj
+Snake.exe: CMakeFiles/Snake.dir/ScoreController.cpp.obj
 Snake.exe: CMakeFiles/Snake.dir/build.make
 Snake.exe: C:/Users/Bartek/SFML-2.5.1/lib/libsfml-graphics-d.a
 Snake.exe: C:/Users/Bartek/SFML-2.5.1/lib/libsfml-window-d.a
@@ -133,7 +181,7 @@ Snake.exe: C:/Users/Bartek/SFML-2.5.1/lib/libsfml-system-d.a
 Snake.exe: CMakeFiles/Snake.dir/linklibs.rsp
 Snake.exe: CMakeFiles/Snake.dir/objects1.rsp
 Snake.exe: CMakeFiles/Snake.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Bartek\CLionProjects\Snake\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable Snake.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=C:\Users\Bartek\CLionProjects\Snake\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable Snake.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\Snake.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

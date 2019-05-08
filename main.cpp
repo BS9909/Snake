@@ -4,6 +4,9 @@
 #include "Snake.h"
 #include "SnakeView.h"
 #include "SnakeController.h"
+#include "ScoreView.h"
+#include "ScoreController.h"
+#include "GameManager.h"
 
 int main() {
     srand(time(NULL));
@@ -13,18 +16,26 @@ int main() {
     //--------------------------------------------------------------------------//
     sf::RenderWindow window(sf::VideoMode(recSize*row,recSize*column), "Snake");
     Snake snake(row,column);
-    SnakeView snakeView(window, snake, recSize);
+    SnakeView snakeView(snake, recSize);
     SnakeController snakeController(snake, snakeView,window);
+
+    ScoreView scoreView(snake,window);
+    ScoreController scoreController(scoreView, snake,snakeController);
+
+    GameManager gameManager(snakeController, scoreController);
 
     while (window.isOpen()){
         while (window.pollEvent(event)) {
             if (event.type == sf::Event::Closed)
                 window.close();
+
+            //snakeController.controllEvent(event);
+            gameManager.handleEvent(event);
         }
         window.clear();
 
-        snakeView.draw();
-        snakeController.controllEvent(event);
+        //snakeView.draw(window);
+        gameManager.draw(window);
 
         window.display();
     }

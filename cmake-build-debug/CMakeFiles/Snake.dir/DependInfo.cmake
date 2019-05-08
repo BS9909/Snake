@@ -4,6 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "C:/Users/Bartek/CLionProjects/Snake/GameManager.cpp" "C:/Users/Bartek/CLionProjects/Snake/cmake-build-debug/CMakeFiles/Snake.dir/GameManager.cpp.obj"
+  "C:/Users/Bartek/CLionProjects/Snake/ScoreController.cpp" "C:/Users/Bartek/CLionProjects/Snake/cmake-build-debug/CMakeFiles/Snake.dir/ScoreController.cpp.obj"
+  "C:/Users/Bartek/CLionProjects/Snake/ScoreView.cpp" "C:/Users/Bartek/CLionProjects/Snake/cmake-build-debug/CMakeFiles/Snake.dir/ScoreView.cpp.obj"
   "C:/Users/Bartek/CLionProjects/Snake/Snake.cpp" "C:/Users/Bartek/CLionProjects/Snake/cmake-build-debug/CMakeFiles/Snake.dir/Snake.cpp.obj"
   "C:/Users/Bartek/CLionProjects/Snake/SnakeController.cpp" "C:/Users/Bartek/CLionProjects/Snake/cmake-build-debug/CMakeFiles/Snake.dir/SnakeController.cpp.obj"
   "C:/Users/Bartek/CLionProjects/Snake/SnakeView.cpp" "C:/Users/Bartek/CLionProjects/Snake/cmake-build-debug/CMakeFiles/Snake.dir/SnakeView.cpp.obj"

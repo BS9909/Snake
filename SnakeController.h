@@ -13,10 +13,15 @@ class SnakeController {
     Snake &snake;
     SnakeView &snakeView;
     sf::RenderWindow &win;
+    bool finish = false;
 public:
     SnakeController(Snake &snake, SnakeView &,sf::RenderWindow &win);
     void controllEvent(sf::Event event);
     void startGame();
+    bool isFinished(){return finish;}
+    void draw(sf::RenderWindow & win){snakeView.draw(win);}
+    void resetFinish(){finish = false;}
+
 };
 
 

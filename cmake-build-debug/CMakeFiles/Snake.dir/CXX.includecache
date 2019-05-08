@@ -6,6 +6,22 @@
 
 #IncludeRegexTransform: 
 
+C:/Users/Bartek/CLionProjects/Snake/ScoreController.cpp
+ScoreController.h
+C:/Users/Bartek/CLionProjects/Snake/ScoreController.h
+
+C:/Users/Bartek/CLionProjects/Snake/ScoreController.h
+ScoreView.h
+C:/Users/Bartek/CLionProjects/Snake/ScoreView.h
+Snake.h
+C:/Users/Bartek/CLionProjects/Snake/Snake.h
+SnakeController.h
+C:/Users/Bartek/CLionProjects/Snake/SnakeController.h
+
+C:/Users/Bartek/CLionProjects/Snake/ScoreView.h
+Snake.h
+C:/Users/Bartek/CLionProjects/Snake/Snake.h
+
 C:/Users/Bartek/CLionProjects/Snake/Snake.h
 SFML/Graphics.hpp
 -
@@ -13,17 +29,21 @@ iostream
 -
 vector
 -
+string
+-
 
-C:/Users/Bartek/CLionProjects/Snake/SnakeView.cpp
+C:/Users/Bartek/CLionProjects/Snake/SnakeController.h
+Snake.h
+C:/Users/Bartek/CLionProjects/Snake/Snake.h
 SnakeView.h
 C:/Users/Bartek/CLionProjects/Snake/SnakeView.h
-vector
--
-SFML/Graphics.hpp
-C:/Users/Bartek/CLionProjects/Snake/SFML/Graphics.hpp
 
 C:/Users/Bartek/CLionProjects/Snake/SnakeView.h
 SFML/Graphics.hpp
+-
+iostream
+-
+string
 -
 Snake.h
 C:/Users/Bartek/CLionProjects/Snake/Snake.h

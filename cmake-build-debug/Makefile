@@ -122,6 +122,87 @@ Snake/fast:
 	$(MAKE) -f CMakeFiles\Snake.dir\build.make CMakeFiles/Snake.dir/build
 .PHONY : Snake/fast
 
+GameManager.obj: GameManager.cpp.obj
+
+.PHONY : GameManager.obj
+
+# target to build an object file
+GameManager.cpp.obj:
+	$(MAKE) -f CMakeFiles\Snake.dir\build.make CMakeFiles/Snake.dir/GameManager.cpp.obj
+.PHONY : GameManager.cpp.obj
+
+GameManager.i: GameManager.cpp.i
+
+.PHONY : GameManager.i
+
+# target to preprocess a source file
+GameManager.cpp.i:
+	$(MAKE) -f CMakeFiles\Snake.dir\build.make CMakeFiles/Snake.dir/GameManager.cpp.i
+.PHONY : GameManager.cpp.i
+
+GameManager.s: GameManager.cpp.s
+
+.PHONY : GameManager.s
+
+# target to generate assembly for a file
+GameManager.cpp.s:
+	$(MAKE) -f CMakeFiles\Snake.dir\build.make CMakeFiles/Snake.dir/GameManager.cpp.s
+.PHONY : GameManager.cpp.s
+
+ScoreController.obj: ScoreController.cpp.obj
+
+.PHONY : ScoreController.obj
+
+# target to build an object file
+ScoreController.cpp.obj:
+	$(MAKE) -f CMakeFiles\Snake.dir\build.make CMakeFiles/Snake.dir/ScoreController.cpp.obj
+.PHONY : ScoreController.cpp.obj
+
+ScoreController.i: ScoreController.cpp.i
+
+.PHONY : ScoreController.i
+
+# target to preprocess a source file
+ScoreController.cpp.i:
+	$(MAKE) -f CMakeFiles\Snake.dir\build.make CMakeFiles/Snake.dir/ScoreController.cpp.i
+.PHONY : ScoreController.cpp.i
+
+ScoreController.s: ScoreController.cpp.s
+
+.PHONY : ScoreController.s
+
+# target to generate assembly for a file
+ScoreController.cpp.s:
+	$(MAKE) -f CMakeFiles\Snake.dir\build.make CMakeFiles/Snake.dir/ScoreController.cpp.s
+.PHONY : ScoreController.cpp.s
+
+ScoreView.obj: ScoreView.cpp.obj
+
+.PHONY : ScoreView.obj
+
+# target to build an object file
+ScoreView.cpp.obj:
+	$(MAKE) -f CMakeFiles\Snake.dir\build.make CMakeFiles/Snake.dir/ScoreView.cpp.obj
+.PHONY : ScoreView.cpp.obj
+
+ScoreView.i: ScoreView.cpp.i
+
+.PHONY : ScoreView.i
+
+# target to preprocess a source file
+ScoreView.cpp.i:
+	$(MAKE) -f CMakeFiles\Snake.dir\build.make CMakeFiles/Snake.dir/ScoreView.cpp.i
+.PHONY : ScoreView.cpp.i
+
+ScoreView.s: ScoreView.cpp.s
+
+.PHONY : ScoreView.s
+
+# target to generate assembly for a file
+ScoreView.cpp.s:
+	$(MAKE) -f CMakeFiles\Snake.dir\build.make CMakeFiles/Snake.dir/ScoreView.cpp.s
+.PHONY : ScoreView.cpp.s
+
 Snake.obj: Snake.cpp.obj
 
 .PHONY : Snake.obj
@@ -239,6 +320,15 @@ help:
 	@echo ... Snake
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... GameManager.obj
+	@echo ... GameManager.i
+	@echo ... GameManager.s
+	@echo ... ScoreController.obj
+	@echo ... ScoreController.i
+	@echo ... ScoreController.s
+	@echo ... ScoreView.obj
+	@echo ... ScoreView.i
+	@echo ... ScoreView.s
 	@echo ... Snake.obj
 	@echo ... Snake.i
 	@echo ... Snake.s

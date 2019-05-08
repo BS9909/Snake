@@ -82,6 +82,24 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/Bartek/CLionProjects/Snake/GameManager.cpp">
+			<Option target="Snake"/>
+		</Unit>
+		<Unit filename="C:/Users/Bartek/CLionProjects/Snake/GameManager.h">
+			<Option target="Snake"/>
+		</Unit>
+		<Unit filename="C:/Users/Bartek/CLionProjects/Snake/ScoreController.cpp">
+			<Option target="Snake"/>
+		</Unit>
+		<Unit filename="C:/Users/Bartek/CLionProjects/Snake/ScoreController.h">
+			<Option target="Snake"/>
+		</Unit>
+		<Unit filename="C:/Users/Bartek/CLionProjects/Snake/ScoreView.cpp">
+			<Option target="Snake"/>
+		</Unit>
+		<Unit filename="C:/Users/Bartek/CLionProjects/Snake/ScoreView.h">
+			<Option target="Snake"/>
+		</Unit>
 		<Unit filename="C:/Users/Bartek/CLionProjects/Snake/Snake.cpp">
 			<Option target="Snake"/>
 		</Unit>

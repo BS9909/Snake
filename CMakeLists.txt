@@ -6,5 +6,5 @@ set(CMAKE_CXX_STANDARD 14)
 set(SFML_DIR "C:/Users/Bartek/SFML-2.5.1/lib/cmake/SFML")
 find_package(SFML 2.5.1 COMPONENTS graphics window system)
 
-add_executable(Snake main.cpp Snake.cpp Snake.h SnakeView.cpp SnakeView.h SnakeController.cpp SnakeController.h)
+add_executable(Snake main.cpp Snake.cpp Snake.h SnakeView.cpp SnakeView.h SnakeController.cpp SnakeController.h GameManager.cpp GameManager.h ScoreView.cpp ScoreView.h ScoreController.cpp ScoreController.h)
 target_link_libraries(Snake sfml-graphics sfml-window sfml-system)
