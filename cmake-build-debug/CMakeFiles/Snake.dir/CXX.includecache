@@ -6,27 +6,27 @@
 
 #IncludeRegexTransform: 
 
-C:/Users/Bartek/CLionProjects/Snake/Snake.cpp
-Snake.h
 C:/Users/Bartek/CLionProjects/Snake/Snake.h
+SFML/Graphics.hpp
+-
 iostream
--
-cstdlib
--
-ctime
--
-SFML/Graphics.hpp
--
-windows.h
--
-
-C:/Users/Bartek/CLionProjects/Snake/Snake.h
-SFML/Graphics.hpp
 -
 vector
 -
-list
+
+C:/Users/Bartek/CLionProjects/Snake/SnakeView.cpp
+SnakeView.h
+C:/Users/Bartek/CLionProjects/Snake/SnakeView.h
+vector
 -
+SFML/Graphics.hpp
+C:/Users/Bartek/CLionProjects/Snake/SFML/Graphics.hpp
+
+C:/Users/Bartek/CLionProjects/Snake/SnakeView.h
+SFML/Graphics.hpp
+-
+Snake.h
+C:/Users/Bartek/CLionProjects/Snake/Snake.h
 
 C:/Users/Bartek/SFML-2.5.1/include/SFML/Config.hpp
 TargetConditionals.h

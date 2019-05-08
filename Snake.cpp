@@ -8,158 +8,75 @@
 #include <ctime>
 #include <SFML/Graphics.hpp>
 #include <windows.h>
+#include <vector>
 
 using namespace std;
 
-Snake::Snake(int width, int high, int rowHeadPosition, int columnHeadPosition){
+Snake::Snake(int width, int high) {
     this->width = width;
     this->high = high;
-    this->rowHeadPosition = rowHeadPosition;
-    this->columnHeadPosition = columnHeadPosition;
-    position.x = 0;
-    position.y = 0;
-    rowFoodPosition=0;
-    columnFoodPosition=0;
-    rowBodyPosition=0;
-    columnBodyPosition=0;
-    snakeLength = 0;
+    snakeLength = 4;
     gameState = RUNNING;
-    for (int i = 0; i < high; ++i) {
-        for (int j = 0; j < width; ++j) {
-            board[i][j].food=false;
-            board[i][j].head=false;
-            board[i][j].body=false;
-        }
-    }
     randomFood();
-
+    snakePosition();
 }
-void Snake::draw() const {
-    for (int i = 0; i < high; ++i) {
-        for (int j = 0; j < width; ++j) {
-            if (board[i][j].head) std::cout << "[H";
-            else std::cout << "[.";
-            if (board[i][j].food) std::cout << "f";
-            else std::cout << ".";
-            if (board[i][j].body) std::cout << "b]";
-            else std::cout << ".]";
-        }
-        cout<<endl;
+void Snake::snakePosition() {
+    for (int i = 0; i < snakeLength; ++i) {
+        bodySnake[i].xPos = i;
+        bodySnake[i].yPos = 0;
     }
 
 }
+//Poruszanie sie działa w następujący sposób, pozycja ostatniego indeksu vectora zamienia się z tym pierwszym
+//Gdy wąż zje pokarm i metoda feedSnake zwróci wartość true to operacja zamiany się nie wykona a jedynie powstanie nowy element wektora o indeksie równym
+//wartości snakeLength a jego pozcyja bedie równa pozycji snake +1
+void Snake::moveSnake() {
+    //Czy konieczny jest tu push_back czy takie cos jak w if else ponizej załatwi sprawę? problem mam w tym co dodac do tego push_backa, lub inaczej mówiąc
+    //jak dostac sie do xPos i yPos w przypadku push_backa
+    if(direction==DOWN && !feedSnake()){
+        bodySnake[0].xPos = bodySnake[snakeLength].xPos;
+        Sleep(500);
+    }
+    else if(direction==DOWN && feedSnake()){
+        bodySnake[snakeLength].xPos = bodySnake[snakeLength-1].xPos;
+    }
+
+    if(direction==UP && !feedSnake()){
+        bodySnake[snakeLength].xPos = bodySnake[0].xPos;
+        Sleep(500);
+    }
+    else if(direction==UP && feedSnake()){
+        bodySnake[snakeLength].xPos = bodySnake[snakeLength+1].xPos;
+    }
+
+    if(direction==RIGHT && !feedSnake()){
+        bodySnake[0].yPos = bodySnake[snakeLength].yPos;
+        Sleep(500);
+    }
+    else if(direction==RIGHT && feedSnake()){
+        bodySnake[snakeLength].yPos = bodySnake[snakeLength+1].yPos;
+    }
+
+    if(direction==LEFT && !feedSnake()){
+        bodySnake[snakeLength].yPos = bodySnake[0].yPos;
+        Sleep(500);
+    }
+    else if(direction==RIGHT && feedSnake()){
+        bodySnake[snakeLength].yPos = bodySnake[snakeLength-1].yPos;
+    }
+}
+//Losowanie jedzenia DORÓB KONIECZNIE WARUNEK W KTORYM SPRAWDZASZ CZY NIE WYLOSOWANO JEDZENIA W MIEJSCE W KTÓRYM ZNAJDUJE SIĘ CIAŁO SNAKE!!!
 void Snake::randomFood() {
-    rowFoodPosition = rand() % high;
-    columnFoodPosition = rand() % width;
-    board[rowFoodPosition][columnFoodPosition].food = true;
+    foodPosition[0].yFoodPos = rand() % high;
+    foodPosition[0].xFoodPos = rand() % width;
 }
-
-void Snake::setHeadPosition() {
-    if(direction==DOWN) {
-        rowHeadPosition++;
-        board[rowHeadPosition][columnHeadPosition].head = true;
-        board[rowHeadPosition][columnHeadPosition].body = true;
-        if (rowHeadPosition == high)
-            rowHeadPosition = -1;
+bool Snake::feedSnake() {
+    if(bodySnake[snakeLength].xPos == foodPosition[0].xFoodPos && bodySnake[snakeLength].yPos == foodPosition[0].yFoodPos) {
+        randomFood();
+        snakeLength++;
+        setScore();
+        return true;
     }
-    if(direction==RIGHT){
-        columnHeadPosition++;
-        board[rowHeadPosition][columnHeadPosition].head = true;
-        board[rowHeadPosition][columnHeadPosition].body = true;
-        if(columnHeadPosition == width)
-            columnHeadPosition = -1;
-    }
-    if(direction==LEFT){
-        columnHeadPosition--;
-        board[rowHeadPosition][columnHeadPosition].head = true;
-        board[rowHeadPosition][columnHeadPosition].body = true;
-        if(columnHeadPosition == -1)
-            columnHeadPosition = width;
-    }
-    if(direction==UP){
-        rowHeadPosition--;
-        board[rowHeadPosition][columnHeadPosition].head = true;
-        board[rowHeadPosition][columnHeadPosition].body = true;
-        if(rowHeadPosition == -1)
-            rowHeadPosition = high;
-    }
-
-}
-
-void Snake::snakeCollision() {
-    for (int i = 0; i < high; ++i) {
-        for (int j = 0; j < width; ++j) {
-            if (board[i][j].food && board[i][j].head) {
-                snakeLength++;
-                board[rowFoodPosition][columnFoodPosition].food = false;
-                randomFood();
-                setSnake();
-            }
-
-            if(board[i][j].head && board[i][j].body) break;
-        }
-    }
-}
-char Snake::getPositionInfo(int row, int column) const {
-    if(board[row][column].head && board[row][column].body) return 'x';
-    if(board[row][column].food) return 'f';
-    if(board[row][column].head) return 'h';
-    if(board[row][column].body) return 'b';
-}
-int Snake::getWidth() const {
-    return width;
-}
-
-int Snake::getHigh() const {
-    return high;
-}
-void Snake::moveDown() {
-    board[rowHeadPosition][columnHeadPosition].head = false;
-    board[rowHeadPosition][rowHeadPosition].body = false;
-    setHeadPosition();
-    snakeCollision();
-    Sleep(100);
-}
-void Snake::moveRight() {
-    board[rowHeadPosition][columnHeadPosition].head = false;
-    board[rowHeadPosition][columnHeadPosition].body = false;
-    setHeadPosition();
-    snakeCollision();
-    Sleep(100);
-}
-void Snake::moveLeft() {
-    board[rowHeadPosition][columnHeadPosition].head = false;
-    board[rowHeadPosition][columnHeadPosition].body = false;
-    setHeadPosition();
-    snakeCollision();
-    Sleep(100);
-}
-void Snake::moveUp() {
-    board[rowHeadPosition][columnHeadPosition].head = false;
-    board[rowHeadPosition][columnHeadPosition].body = false;
-    setHeadPosition();
-    snakeCollision();
-    Sleep(100);
-}
-//Funkcja odpowiedzialna za odpowiednie ustawienie się nowego ciała snake
-void Snake::setSnake() {
-   // for (int i = 0; i < snakeLength; ++i) {
-        if(direction == DOWN) {
-            board[rowHeadPosition-snakeLength][columnHeadPosition].body = true;
-            snakeBody[snakeLength] = board[rowHeadPosition-snakeLength][columnHeadPosition];
-        }
-        if(direction == UP) {
-            board[rowHeadPosition+snakeLength][columnHeadPosition].body = true;
-            snakeBody[snakeLength] = board[rowHeadPosition+snakeLength][columnHeadPosition];
-        }
-        if(direction == LEFT) {
-            board[rowHeadPosition][columnHeadPosition+snakeLength].body = true;
-            snakeBody[snakeLength] = board[rowHeadPosition][columnHeadPosition+snakeLength];
-        }
-        if(direction == RIGHT) {
-            board[rowHeadPosition][columnHeadPosition-snakeLength].body = true;
-            snakeBody[snakeLength] = board[rowHeadPosition][columnHeadPosition-snakeLength];
-     //   }
-    }
+    return false;
 }
 

@@ -13,25 +13,25 @@ void SnakeController::controllEvent(sf::Event event) {
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)) {
         if(snake.getDirectiion()!=UP) {
             snake.setDirection(DOWN);
-            snake.moveDown();
+            snake.moveSnake();
         }
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {
         if(snake.getDirectiion()!=LEFT) {
             snake.setDirection(RIGHT);
-            snake.moveRight();
+            snake.moveSnake();
         }
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)) {
         if(snake.getDirectiion()!=RIGHT) {
-            snake.setDirection(LEFT);
-            snake.moveLeft();
+           snake.setDirection(LEFT);
+           snake.moveSnake();
         }
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)) {
         if(snake.getDirectiion()!=DOWN) {
             snake.setDirection(UP);
-            snake.moveUp();
+            snake.moveSnake();
         }
     }
 }

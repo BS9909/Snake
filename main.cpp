@@ -12,13 +12,12 @@ int main() {
     int row=20,column=20;
     //--------------------------------------------------------------------------//
     sf::RenderWindow window(sf::VideoMode(recSize*row,recSize*column), "Snake");
-    Snake snake(row,column,0,0);
+    Snake snake(row,column);
     SnakeView snakeView(window, snake, recSize);
     SnakeController snakeController(snake, snakeView,window);
-    snake.draw();
+
     while (window.isOpen()){
         while (window.pollEvent(event)) {
-            // Close window : exit
             if (event.type == sf::Event::Closed)
                 window.close();
         }

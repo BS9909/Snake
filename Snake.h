@@ -2,64 +2,45 @@
 // Created by Bartek on 03.05.2019.
 //
 #include <SFML/Graphics.hpp>
+#include <iostream>
 #include <vector>
-#include <list>
 
 #ifndef SNAKE_SNAKE_H
 #define SNAKE_SNAKE_H
 
-struct sItem{
-    bool head;
-    bool food;
-    bool body;
+struct snakeSegment{
+    int xPos;
+    int yPos;
 };
-struct sPosition{
-    int x,y;
+struct sFoodPositions{
+    int xFoodPos;
+    int yFoodPos;
 };
 enum gameState{FINISHED_WIN, FINISHED_LOOSE, RUNNING};
 enum DIRECTION{UP,DOWN,LEFT,RIGHT};
 class Snake {
-    sItem board[100][100];
-    sItem snakeBody[100];
-    sPosition position;
     int width;
     int high;
-    int rowFoodPosition;
-    int columnFoodPosition;
-    int moveCounter;
-    int xOldPosition[100];
-    int yOldPosition[100];
-public:
-    int getWidth() const;
-
-    int getHigh() const;
-
-private:
-    int rowHeadPosition;
-    int columnHeadPosition;
-    int rowBodyPosition;
-    int columnBodyPosition;
-    int rectangleSize;
     gameState gameState;
     int snakeLength;
     DIRECTION direction;
-
+    std::vector  <snakeSegment> bodySnake;
+    std::vector <sFoodPositions> foodPosition;
+    int score;
 public:
-    Snake(int width, int high,int rowHeadPosition, int columnHeadPosition);
-    void draw() const;
+    int getWidth() const{return width;}
+    int getHigh() const{return high;}
+    Snake(int width, int high);
     void randomFood();
-    void setHeadPosition();
-    char getPositionInfo(int row, int column) const;
-    void snakeCollision();
-    void Feed();
-    void moveDown();
-    void moveRight();
-    void moveLeft();
-    void moveUp();
-    void removeTail();
-    void setSnake();
+    bool feedSnake();
+    void moveSnake();
+    void snakePosition();
     void setDirection(DIRECTION direction1){direction=direction1;}
     DIRECTION getDirectiion()const{return direction;}
+    const std::vector<snakeSegment> &getBodySnake() const{return bodySnake;};
+    const std::vector<sFoodPositions> &getFoodPosition() const{return foodPosition;};
+    void setScore(){score = snakeLength;}
+    int getScore(){ return score;}
 };
 
 
