@@ -16,12 +16,11 @@ void GameManager::updateState() {
     switch (state) {
         case GAME:
             if (snakeController.isFinished()) {
-                Sleep(300);
                 state = SCORE;
             }
             break;
         case SCORE:
-            if(!snakeController.isFinished())
+            if(snakeController.isFinished())
                 state = GAME;
 
             break;

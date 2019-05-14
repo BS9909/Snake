@@ -11,8 +11,8 @@
 int main() {
     srand(time(NULL));
     sf::Event event;
-    int recSize = 40;
-    int row=20,column=20;
+    int recSize = 60;
+    int row=15,column=15;
     //--------------------------------------------------------------------------//
     sf::RenderWindow window(sf::VideoMode(recSize*row,recSize*column), "Snake");
     Snake snake(row,column);
@@ -29,13 +29,13 @@ int main() {
             if (event.type == sf::Event::Closed)
                 window.close();
 
-            //snakeController.controllEvent(event);
-            gameManager.handleEvent(event);
+            snakeController.controllEvent(event);
+            //gameManager.handleEvent(event);
         }
         window.clear();
 
-        //snakeView.draw(window);
-        gameManager.draw(window);
+        snakeView.draw(window);
+        //gameManager.draw(window);
 
         window.display();
     }

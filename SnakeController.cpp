@@ -42,4 +42,5 @@ void SnakeController::controllEvent(sf::Event event) {
                 finish = true;
         }
     }
+
 }

@@ -8,6 +8,7 @@
 #include <ctime>
 #include <SFML/Graphics.hpp>
 #include <vector>
+#include <windows.h>
 
 using namespace std;
 
@@ -27,11 +28,15 @@ void Snake::snakePosition() {
 
 }
 void Snake::moveSnake() {
+    Sleep(200-score*2);
     if(direction==DOWN ) {
         auto it = bodySnake.begin();
         bodySnake.insert(it, {bodySnake[0].xPos, bodySnake[0].yPos+1});
+        //jesli snake nie zje jedzenia to usun ostatni element, jesli zje to nie usuwaj(automatycznie na ekranie
+        //pojawi sie jeden segment więcej
         if(!feedSnake())
             bodySnake.pop_back();
+        //jesli glowa snake znajdzie sie w pozycji w ktorej jest dowolny innny segment-ustaw gameState na FINISHED_LOOSE
         if(snakeCollision()) {
             gameState = FINISHED_LOOSE;
 
@@ -85,6 +90,7 @@ void Snake::randomFood() {
     }
 }
 bool Snake::feedSnake() {
+    //Jesli pozycja glowy == pozycja jedzenia
     if(bodySnake[0].xPos == foodPosition[score].xFoodPos && bodySnake[0].yPos == foodPosition[score].yFoodPos) {
         firstFood = false;
         snakeLength++;
@@ -108,6 +114,8 @@ void Snake::crossWall() {
         bodySnake[0].xPos = width;
 }
 bool Snake::snakeCollision() {
+    //Jesli pozycja dowolnego indeksu vectora bodySnake == indeks zerowy tego vectora (głowa)
+    //zwroc prawde
     for (int i = snakeLength; i > 0; --i) {
         if (bodySnake[0].xPos == bodySnake[i].xPos && bodySnake[0].yPos == bodySnake[i].yPos) {
             gameState = FINISHED_LOOSE;
@@ -119,5 +127,6 @@ bool Snake::snakeCollision() {
 void Snake::snakeCollisionAnimation() {
     for (int i = 0; i < snakeLength; ++i) {
         bodySnake.pop_back();
+        Sleep(100);
     }
 }
